@@ -394,6 +394,10 @@ parseStatement: true, parseSourceElement: true */
                 }
             } else if (isWhiteSpace(ch)) {
                 ++index;
+            } else if (ch === '#') {
+                ++lineNumber;
+                index += 2;
+                lineComment = true;
             } else if (isLineTerminator(ch)) {
                 ++index;
                 if (ch ===  '\r' && source[index] === '\n') {
